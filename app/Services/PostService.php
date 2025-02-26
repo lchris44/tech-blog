@@ -97,7 +97,14 @@ class PostService
      */
     public function removeCover(Post $post)
     {
-        $path = str_replace('/storage', '', $post->cover);
+        // Extract the path from the URL
+        $urlPath = parse_url($post->cover, PHP_URL_PATH); // Returns "/storage/uploads/posts/20.jpeg"
+
+        // Remove the "/storage" prefix
+        $path = str_replace('/storage', '', $urlPath); // Returns "/uploads/posts/20.jpeg"
+
+        // Remove leading/trailing slashes
+        $path = trim($path, '/'); // Returns "uploads/posts/20.jpeg"
 
         // Clear the cover image URL in the post model
         $post->cover = null;

@@ -24,7 +24,7 @@ This is a Laravel 12 and Vue 3-based Single Page Application (SPA) for managing 
 ## Installation
 
 ### Prerequisites
-- Docker, PHP 8.2+, Composer, MySQL, and Node.js
+- Docker, PHP 8.2+ and Composer
 
 ### Steps
 
@@ -42,35 +42,41 @@ This is a Laravel 12 and Vue 3-based Single Page Application (SPA) for managing 
 3. **Install dependencies:**
    ```sh
    composer install
-   npm install
    ```  
 
-4. **Start the application:**
-   Start Laravel Sail:
+4. **Start Laravel Sail:**
    ```sh
    ./vendor/bin/sail up -d
    ```
 
-5. **Connect to the Docker container and install dependencies:**
+5. **Run migrations and seed data:**
    ```sh
-   docker exec -it tech-blog-laravel.test-1 bash
-   composer install
+   ./vendor/bin/sail artisan migrate --seed
    ```
 
-6. **Run migrations and seed data:**
+**Note:** This will create a default admin user:
+- **Email:** `admin@tech.com`
+- **Password:** `secret`
+
+6. **Create storage symlink:**
    ```sh
-   php artisan migrate --seed
+   ./vendor/bin/sail artisan storage:link
    ```
 
-7. **Build frontend assets:**
+7. **Install frontend dependencies:**
    ```sh
-   npm run build
+   ./vendor/bin/sail npm install
    ```
 
-8. **Access the application:**
-   Open `http://localhost` in your browser.
+8. **Build frontend assets:**
+   ```sh
+   ./vendor/bin/sail npm run build
+   ```
 
-## API Usage`
+9. **Access the application:**
+   Open `http://localhost:8080` in your browser.
+
+## API Usage
 
 The API is throttle-protected to prevent abuse and features caching for faster results.
 

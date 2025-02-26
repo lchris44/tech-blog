@@ -24,7 +24,7 @@ import messages from '@/lang/messages.js';
 import '@/assets/styles.scss';
 
 // Globally import pages (excluding components)
-const pages = import.meta.glob(['./pages/**/*.vue', '!./pages/**/Components/*.vue']);
+const pages = import.meta.glob(['./Pages/**/*.vue', '!./Pages/**/Components/*.vue']);
 
 // Retrieve stored locale from localStorage
 const storedLocale = localStorage.getItem('locale');
@@ -39,7 +39,7 @@ const i18n = createI18n({
 });
 
 // Resolve page components dynamically
-const resolvePage = async (name) => await resolvePageComponent(`./pages/${name}.vue`, pages);
+const resolvePage = async (name) => await resolvePageComponent(`./Pages/${name}.vue`, pages);
 
 // Initialize Inertia app
 createInertiaApp({
