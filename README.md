@@ -173,7 +173,7 @@ The application includes tests for both the API and the main controllers to ensu
 To run tests:
 
 ```sh
-   php artisan test
+   ./vendor/bin/sail artisan test
    ```
 
 ## Design Decisions
