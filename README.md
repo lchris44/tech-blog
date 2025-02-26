@@ -83,14 +83,26 @@ This is a Laravel 12 and Vue 3-based Single Page Application (SPA) for managing 
 
 ## API Usage
 
-The API is throttle-protected to prevent abuse and features caching for faster results.
+The API is throttle-protected to prevent abuse and features caching for faster results. It also supports locale switching.
 
 ### Fetch all posts with optional tag filtering:
 ```sh
-GET /api/v1/posts?tags=tag1,tag2&page=1
+GET /api/{locale}/v1/posts?tags=tag1,tag2&page=1
 ```
+- **locale** (required): Locale code for the translations in the results (e.g., en, it).
 - **tags** (optional): Comma-separated list of tags to filter posts.
 - **page** (optional): Pagination page number. (Default pagination is set to 10)
+
+Examples:
+```sh
+GET /api/en/v1/posts?tags=tag1,tag2&page=1
+```
+will return English results.
+
+```sh
+GET /api/it/v1/posts?tags=tag1,tag2&page=1
+```
+will return Italian results.
 
 Example response:
 ```json
@@ -121,10 +133,10 @@ Example response:
     }
   ],
   "links": {
-    "first": "http://localhost/api/v1/posts?page=1",
-    "last": "http://localhost/api/v1/posts?page=3",
+    "first": "http://localhost/api/en/v1/posts?page=1",
+    "last": "http://localhost/api/en/v1/posts?page=3",
     "prev": null,
-    "next": "http://localhost/api/v1/posts?page=2"
+    "next": "http://localhost/api/en/v1/posts?page=2"
   },
   {
   "meta": {
@@ -138,27 +150,27 @@ Example response:
         "active": false
       },
       {
-        "url": "http://localhost/api/v1/posts?page=1",
+        "url": "http://localhost/api/en/v1/posts?page=1",
         "label": "1",
         "active": true
       },
       {
-        "url": "http://localhost/api/v1/posts?page=2",
+        "url": "http://localhost/api/en/v1/posts?page=2",
         "label": "2",
         "active": false
       },
       {
-        "url": "http://localhost/api/v1/posts?page=3",
+        "url": "http://localhost/api/en/v1/posts?page=3",
         "label": "3",
         "active": false
       },
       {
-        "url": "http://localhost/api/v1/posts?page=2",
+        "url": "http://localhost/api/en/v1/posts?page=2",
         "label": "Next »",
         "active": false
       }
     ],
-    "path": "http://localhost/api/v1/posts",
+    "path": "http://localhost/api/en/v1/posts",
     "per_page": 10,
     "to": 10,
     "total": 21

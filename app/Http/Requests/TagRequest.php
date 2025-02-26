@@ -25,6 +25,7 @@ class TagRequest extends FormRequest
     public function rules()
     {
         return [
+            'name'    => ['required', 'array'],
             'name.en' => ['required', 'max:255', Rule::unique('tags', 'name->en')],
             'name.it' => ['required', 'max:255', Rule::unique('tags', 'name->it')],
         ];

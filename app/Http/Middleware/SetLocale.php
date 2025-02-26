@@ -10,8 +10,8 @@ class SetLocale
 {
     public function handle(Request $request, Closure $next)
     {
-        // Get the locale from the session or default to 'en'
-        $locale = session('locale', 'en');
+        // Get the locale from the route parameter, session, or default to 'en'
+        $locale = $request->route('locale') ?? session('locale', 'en');
         App::setLocale($locale);
 
         return $next($request);

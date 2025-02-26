@@ -7,6 +7,7 @@ use App\Http\Requests\Api\v1\PostRequest;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 
 class PostController extends Controller
@@ -40,7 +41,8 @@ class PostController extends Controller
         }
 
         // Generate a unique cache key based on the tags and page number
-        $cacheKey = 'posts_'.implode('_', $request->tags ?? ['all']).'_page_'.$request->get('page', 1);
+        $locale = App::getLocale();
+        $cacheKey = 'posts_'.$locale.'_'.implode('_', $request->tags ?? ['all']).'_page_'.$request->get('page', 1);
 
         // Paginate the results and cache them for 60 seconds
         $posts = Cache::remember($cacheKey, 60, function () use ($query) {
