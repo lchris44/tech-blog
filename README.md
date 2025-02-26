@@ -63,17 +63,22 @@ This is a Laravel 12 and Vue 3-based Single Page Application (SPA) for managing 
    ./vendor/bin/sail artisan storage:link
    ```
 
-7. **Install frontend dependencies:**
+7. **Generate the application key:**
+   ```sh
+   ./vendor/bin/sail artisan key:generate
+   ```
+
+8. **Install frontend dependencies:**
    ```sh
    ./vendor/bin/sail npm install
    ```
 
-8. **Build frontend assets:**
+9. **Build frontend assets:**
    ```sh
    ./vendor/bin/sail npm run build
    ```
 
-9. **Access the application:**
+10. **Access the application:**
    Open `http://localhost:8080` in your browser.
 
 ## API Usage
