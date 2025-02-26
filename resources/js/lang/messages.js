@@ -1,0 +1,48 @@
+const messages = {
+  en: {
+      welcome: "Welcome to Our Tech Blog",
+      stayUpdated: "Stay updated with the latest articles",
+      readMore: "Read more",
+      tags: "Tags",
+      login: "Login",
+      register: "Register",
+      colorPalette: "Color Palette",
+      themeMode: "Theme Mode",
+      otherPosts: 'Other posts',
+      auth: {
+          email: "Email",
+          password: "Password",
+          remember: "Remember me",
+          loginButton: "Sign In",
+          registerButton: "Create an account",
+          name: "Name",
+          surname: "Surname",
+          confirmPassword: "Confirm Password",
+          alreadyHaveAccount: "Already have an account? Log in",
+      },
+  },
+  it: {
+      welcome: "Benvenuto nel nostro Tech Blog",
+      stayUpdated: "Resta aggiornato con gli ultimi articoli",
+      readMore: "Leggi di più",
+      tags: "Tag",
+      login: "Accesso",
+      register: "Registrati",
+      colorPalette: "Palette di colori",
+      themeMode: "Modalità tema",
+      otherPosts: 'Altri articoli',
+      auth: {
+          email: "Email",
+          password: "Password",
+          remember: "Ricordami",
+          loginButton: "Accedi",
+          registerButton: "Crea un account",
+          name: "Nome",
+          surname: "Cognome",
+          confirmPassword: "Conferma password",
+          alreadyHaveAccount: "Hai già un account? Accedi",
+      },
+  },
+};
+
+export default messages;
