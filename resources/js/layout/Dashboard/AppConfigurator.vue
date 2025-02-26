@@ -307,7 +307,7 @@ const primaryColors = ref([
 
 function getPresetExt() {
   const color = primaryColors.value.find((c) => c.name === layoutConfig.primary);
-  console.log(layoutConfig.primary);
+
   if (color.name === "noir") {
     return {
       semantic: {
